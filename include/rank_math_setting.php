@@ -1,4 +1,5 @@
-<?php if(isset($_POST['rankmath_graph_val'])){
+<?php $message='';
+if(isset($_POST['rankmath_graph_val'])){
     $obj=$_POST;
     $data_name = sanitize_text_field($obj['data_name']);
     $data_uv = sanitize_text_field($obj['data_uv']);
