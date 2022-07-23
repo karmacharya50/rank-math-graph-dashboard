@@ -19,12 +19,12 @@ if(isset($_GET['d_id'])){
     $table_name = $table_prefix . 'rank_math_graph_data';
     $delete_id = sanitize_text_field($_GET['d_id']);
     $wpdb->delete( $table_name, array( 'id' => $delete_id ) );
-    $message= esc_html__('Graph Deleted Successfully','rankmath');
+    $message= esc_html__('Graph Data Deleted Successfully','rankmath');
 }
 ?>
 <div class="rank_math_graph_entry_wrap">
     
-    <div class="rank_math_message"><?php echo esc_attr($message);?></div>
+    
     <?php $admin_plugin_url = get_admin_page_url('rank-math-graph-dashboard');
     function get_admin_page_url(string $menu_slug, $query = null, array $esc_options = []) : string
     {
@@ -46,6 +46,7 @@ if(isset($_GET['d_id'])){
                     <input type="text" name="data_value" value="" placeholder="Value"><br>
                     <input type="submit" name="rankmath_graph_val" value="Save Data">
                 </form>
+            <div class="rank_math_message"><?php echo esc_attr($message);?></div>
         </div>
         <?php $rest_api_url=site_url()."/wp-json/wl/v1/rankmathgraph/";?>
         <div id="rank_math_graph_root" data-url="<?php echo $rest_api_url;?>"></div>
